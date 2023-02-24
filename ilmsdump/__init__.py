@@ -29,8 +29,8 @@ import yarl
 
 import ilmsdump.fileutil
 
-LOGIN_DOMAIN = 'lms.nthu.edu.tw'
-TARGET_ORIGIN = os.environ.get('ILMSDUMP_TARGET_ORIGIN', 'https://lms.nthu.edu.tw')
+LOGIN_DOMAIN = 'lms.csmu.edu.tw'
+TARGET_ORIGIN = os.environ.get('ILMSDUMP_TARGET_ORIGIN', 'http://lms.csmu.edu.tw')
 LOGIN_URL = f'{TARGET_ORIGIN}/sys/lib/ajax/login_submit.php'
 LOGIN_STATE_URL = f'{TARGET_ORIGIN}/home.php'
 COURSE_LIST_URL = f'{TARGET_ORIGIN}/home.php?f=allcourse'
@@ -286,9 +286,9 @@ class Client:
         async with self.session.get(f'{TARGET_ORIGIN}/login_page.php') as response:
             await response.read()
 
-        async with captcha.request(self.session) as response:
-            jpegbin = await response.read()
-        captcha_code = captcha.match(jpegbin)
+        # async with captcha.request(self.session) as response:
+        #     jpegbin = await response.read()
+        captcha_code = "na"
 
         login = self.session.post(
             LOGIN_URL,

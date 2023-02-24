@@ -372,7 +372,7 @@ class Client:
 
             course = Course(
                 id=course_id,
-                serial="-",
+                serial="--",
                 name=name,
                 is_admin=is_admin,
             )

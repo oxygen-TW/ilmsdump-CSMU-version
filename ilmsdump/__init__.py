@@ -357,13 +357,13 @@ class Client:
                 )
 
             html = lxml.html.fromstring(body)
+            print("1")
+            (name,) = html.xpath('//span[@class="pointer"]/text()')
 
-            (name,) = html.xpath('//div[@class="infoPath"]/a/text()')
-
-            (hint,) = html.xpath('//div[@class="infoTable"]//td[2]/span[@class="hint"]/text()')
-            m = re.match(r'\(\w+, (\w+), \w+, \w+\)', hint)
-            assert m is not None, hint
-            serial = m.group(1)
+            # (hint,) = html.xpath('//div[@class="infoTable"]//td[2]/span[@class="hint"]/text()')
+            # m = re.match(r'\(\w+, (\w+), \w+, \w+\)', hint)
+            # assert m is not None, hint
+            # serial = m.group(1)
 
             if html.xpath('//div[@id="main"]//a[@href="javascript:editDoc(1)"]'):
                 is_admin = True
@@ -372,7 +372,7 @@ class Client:
 
             course = Course(
                 id=course_id,
-                serial=serial,
+                serial="-",
                 name=name,
                 is_admin=is_admin,
             )

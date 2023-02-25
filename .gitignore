@@ -131,3 +131,5 @@ dmypy.json
 
 # Project specific
 ilmsdump.out/
+/ilmsdump.out
+/ilmsdump/dist/ilmsdump-CSMU-version.zip

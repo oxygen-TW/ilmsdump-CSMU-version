@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from charset_normalizer import md__mypyc
 import asyncio
 import collections
 import contextlib
@@ -1348,4 +1349,5 @@ You can add --no-resume-check to bypass this check if you are sure what you are 
 
 
 if __name__ == '__main__':
+    print("iLMSDump CSMU Version")
     main()
